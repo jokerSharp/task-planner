@@ -24,6 +24,7 @@ public class Priority {
     private Long id;
 
     private String title;
+
     private String color;
 
     @ManyToOne

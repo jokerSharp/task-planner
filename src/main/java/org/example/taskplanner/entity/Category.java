@@ -1,6 +1,7 @@
 package org.example.taskplanner.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,16 +27,16 @@ public class Category {
 
     private String title;
 
-    @Column(name = "completed_count", updatable = false) // т.к. это поле высчитывается автоматически в триггерах - вручную его не обновляем (updatable = false)
+    @Column(name = "completed_count", updatable = false)
     private Long completedCount;
 
-    @Column(name = "uncompleted_count", updatable = false) // т.к. это поле высчитывается автоматически в триггерах - вручную его не обновляем (updatable = false)
+    @Column(name = "uncompleted_count", updatable = false)
     private Long uncompletedCount;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id") // по каким полям связаны эти 2 объекта (foreign key)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
-
 
     @Override
     public boolean equals(Object o) {

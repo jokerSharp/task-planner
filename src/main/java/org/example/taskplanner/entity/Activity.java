@@ -35,7 +35,6 @@ public class Activity {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -48,6 +47,4 @@ public class Activity {
     public int hashCode() {
         return Objects.hash(id);
     }
-
-
 }
