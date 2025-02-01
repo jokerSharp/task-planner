@@ -1,6 +1,6 @@
 package org.example.taskplanner.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -27,7 +27,7 @@ public class Role {
 
     private String name;
 
-    @JsonBackReference
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(schema = "todolist", name = "user_role",
             joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"),

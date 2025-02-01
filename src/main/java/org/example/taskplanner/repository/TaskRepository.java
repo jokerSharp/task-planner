@@ -26,7 +26,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
             ") and " +
             "(t.user.email=:email)")
     Page<Task> findByParams(@Param("title") String title,
-                            @Param("completed") Integer completed,
+                            @Param("completed") Boolean completed,
                             @Param("priorityId") Long priorityId,
                             @Param("categoryId") Long categoryId,
                             @Param("email") String email,

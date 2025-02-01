@@ -19,14 +19,17 @@ public class PriorityService {
         return repository.findByUserEmailOrderByIdAsc(email);
     }
 
+    @Transactional
     public Priority add(Priority priority) {
         return repository.save(priority);
     }
 
+    @Transactional
     public Priority update(Priority priority) {
         return repository.save(priority);
     }
 
+    @Transactional
     public void deleteById(Long id) {
         repository.deleteById(id);
     }
