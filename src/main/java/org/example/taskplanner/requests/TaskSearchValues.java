@@ -14,7 +14,7 @@ import java.util.Date;
 public class TaskSearchValues {
 
     private String title;
-    private Integer completed;
+    private Boolean completed;
     private Long priorityId;
     private Long categoryId;
     private String email;

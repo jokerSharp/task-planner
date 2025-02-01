@@ -24,6 +24,6 @@ public class LoggingAspect {
         Object result =  pjp.proceed();
         stopWatch.stop();
         log.info("---Execution time of " + className + "." + methodName + "() is " + stopWatch.getTotalTimeMillis() + " ms---");
-        return pjp.proceed();
+        return result;
     }
 }

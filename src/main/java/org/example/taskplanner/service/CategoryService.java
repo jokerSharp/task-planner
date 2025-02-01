@@ -19,14 +19,17 @@ public class CategoryService {
         return repository.findByUserEmailOrderByTitleAsc(email);
     }
 
+    @Transactional
     public Category add(Category category) {
         return repository.save(category);
     }
 
+    @Transactional
     public Category update(Category category) {
         return repository.save(category);
     }
 
+    @Transactional
     public void deleteById(Long id) {
         repository.deleteById(id);
     }

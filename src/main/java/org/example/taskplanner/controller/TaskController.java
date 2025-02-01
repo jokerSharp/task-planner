@@ -19,7 +19,7 @@ import java.util.NoSuchElementException;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("api/tasks") // базовый URI
+@RequestMapping("api/tasks")
 public class TaskController {
 
     public static final String ID_COLUMN = "id";
@@ -80,7 +80,7 @@ public class TaskController {
     @PostMapping("/search")
     public ResponseEntity<Page<Task>> search(@RequestBody TaskSearchValues taskSearchValues) {
         String title = taskSearchValues.getTitle() != null ? taskSearchValues.getTitle() : null;
-        Integer completed = taskSearchValues.getCompleted() != null ? taskSearchValues.getCompleted() : null;
+        Boolean completed = taskSearchValues.getCompleted() != null ? taskSearchValues.getCompleted() : null;
         Long priorityId = taskSearchValues.getPriorityId() != null ? taskSearchValues.getPriorityId() : null;
         Long categoryId = taskSearchValues.getCategoryId() != null ? taskSearchValues.getCategoryId() : null;
 

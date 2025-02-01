@@ -22,19 +22,22 @@ public class TaskService {
         return repository.findByUserEmailOrderByTitleAsc(email);
     }
 
+    @Transactional
     public Task add(Task task) {
         return repository.save(task);
     }
 
+    @Transactional
     public Task update(Task task) {
         return repository.save(task);
     }
 
+    @Transactional
     public void deleteById(Long id) {
         repository.deleteById(id);
     }
 
-    public Page<Task> findByParams(String text, Integer completed, Long priorityId, Long categoryId, String email,
+    public Page<Task> findByParams(String text, Boolean completed, Long priorityId, Long categoryId, String email,
                                    Date dateFrom, Date dateTo, PageRequest paging) {
         return repository.findByParams(text, completed, priorityId, categoryId, email, dateFrom, dateTo, paging);
     }

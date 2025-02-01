@@ -1,5 +1,6 @@
 package org.example.taskplanner.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,7 +30,8 @@ public class Stat {
     @Column(name = "uncompleted_total", updatable = false)
     private Long uncompletedTotal;
 
-    @OneToOne
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToOne(fetch = FetchType.LAZY)
     @MapsId
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
